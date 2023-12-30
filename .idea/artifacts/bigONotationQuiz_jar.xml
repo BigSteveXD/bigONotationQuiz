@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="bigONotationQuiz:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/bigONotationQuiz_jar</output-path>
+    <root id="archive" name="bigONotationQuiz.jar">
+      <element id="module-output" name="bigONotationQuiz" />
+    </root>
+  </artifact>
+</component>
