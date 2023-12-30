@@ -11,19 +11,18 @@ public class bigONotationQuiz extends JFrame{
         myFrame.setSize(600, 500);
         myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        questionPool qp = new questionPool();//create an object of the questionPool method
-        qp.createQuestionPool();//can be used to reset the quiz?
+        questionPool qp = new questionPool();
+        qp.createQuestionPool();
 
-        int questionSize = qp.getQuestionSize();//9*14 //70
+        int questionSize = qp.getQuestionSize();
 
-        //String b1="O(1)", b2="O(log n)", b3="O(n)", b4="O(n log n)", b5 = "N/A";
-        JButton button1 = new JButton("O(1)");//new JButton(b1);
+        JButton button1 = new JButton("O(1)");
         JButton button2 = new JButton("O(log n)");
         JButton button3 = new JButton("O(n)");
         JButton button4 = new JButton("O(n log n)");
         JButton button5 = new JButton("N/A");
 
-        buttonAnswer ba = new buttonAnswer();//create an object of the buttonAnswer method
+        buttonAnswer ba = new buttonAnswer();
 
         button1.addActionListener(new ActionListener() {
             @Override
@@ -104,10 +103,7 @@ public class bigONotationQuiz extends JFrame{
         myFrame.add(myPanel, BorderLayout.AFTER_LAST_LINE);//BorderLayout.NORTH //SOUTH
         myFrame.setVisible(true);
 
-        //send array list to method to get filled with questions?
-        //ArrayList<String> listOfQuestions = new ArrayList<>();////////////////////////////////////////////////////////
-
-        while(questionSize>0){//>= //>0
+        while(questionSize>0){
             System.out.println("begin loop");
             questionSize = qp.getQuestionSize();
 
@@ -130,9 +126,9 @@ public class bigONotationQuiz extends JFrame{
 
 
 class questionPool{
-    private ArrayList<String> questionPool = new ArrayList<>();//added private//////////////////////////////////////////
-    private int currentQ;//added private////////////////////////////////////////////////////////////////////////////////
-    private String setQuestion;//added private//////////////////////////////////////////////////////////////////////////
+    private ArrayList<String> questionPool = new ArrayList<>();
+    private int currentQ;
+    private String setQuestion;
 
     public int getQuestionSize(){
         return questionPool.size();
@@ -157,7 +153,7 @@ class questionPool{
             System.out.println("Win");
         }
 
-        switch (setQuestion){//switch (currentQ)
+        switch (setQuestion){
             //ARRAY
             case "Time Complexity: Worst: Access: Array: ?":
                 //O(1) //button1
