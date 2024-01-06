@@ -24,41 +24,28 @@ public class bigONotationQuiz extends JFrame{
         JButton button5 = new JButton("N/A");
 
         buttonAnswer ba = new buttonAnswer();
-        JLabel currentQ = new JLabel("start");/////////////////////////////////////////////////////////////////////////////
-        //Timer timer = new Timer(10000, null);
+        JLabel currentQ = new JLabel("start");
+        //Timer timer = new Timer(10000, null);/////////////////////////////////////////////////////////////////////////
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("button1");
                 if(ba.getB1()==true){
-                    //qp.removeQuestion(qp.getQuestion()); //old location
-                    //change text to correct then delay //////////////////////////////////////////////////////////////////////////
                     currentQ.setText("Correct!");
                     System.out.println("correct");
-
                     qp.removeQuestion(qp.getQuestion());
                 }else{
                     currentQ.setText("False!");
                     System.out.println("false");
                 }
-                /*
-                try{
-                    TimeUnit.SECONDS.sleep(2);//5L?
-                    System.out.println("button bit ran");
-                }catch(InterruptedException ex){
-                    Thread.currentThread().interrupt();
-                }
-                */
                 Timer timer = new Timer(2000, new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        //currentQ.setText("O(1)");//reset
                         ba.setNextQuestion(true);
                     }
                 });
                 timer.setRepeats(false);//run one time
                 timer.start();
-                //ba.setNextQuestion(true);
             }
         });
         button2.addActionListener(new ActionListener() {
@@ -66,9 +53,9 @@ public class bigONotationQuiz extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 System.out.println("button2");
                 if(ba.getB2()==true){
+                    currentQ.setText("Correct!");
                     System.out.println("correct");
                     qp.removeQuestion(qp.getQuestion());
-                    currentQ.setText("Correct!");
                 }else{
                     currentQ.setText("False!");
                     System.out.println("false");
@@ -88,9 +75,9 @@ public class bigONotationQuiz extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 System.out.println("button3");
                 if(ba.getB3()==true){
+                    currentQ.setText("Correct!");
                     System.out.println("correct");
                     qp.removeQuestion(qp.getQuestion());
-                    currentQ.setText("Correct!");
                 }else{
                     currentQ.setText("False!");
                     System.out.println("false");
@@ -110,9 +97,9 @@ public class bigONotationQuiz extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 System.out.println("button4");
                 if(ba.getB4()==true){
+                    currentQ.setText("Correct!");
                     System.out.println("correct");
                     qp.removeQuestion(qp.getQuestion());
-                    currentQ.setText("Correct!");
                 }else{
                     currentQ.setText("False!");
                     System.out.println("false");
@@ -132,9 +119,9 @@ public class bigONotationQuiz extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 System.out.println("button5");
                 if(ba.getB5()==true){
+                    currentQ.setText("Correct!");
                     System.out.println("correct");
                     qp.removeQuestion(qp.getQuestion());
-                    currentQ.setText("Correct!");
                 }else{
                     currentQ.setText("False!");
                     System.out.println("false");
