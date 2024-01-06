@@ -25,7 +25,6 @@ public class bigONotationQuiz extends JFrame{
 
         buttonAnswer ba = new buttonAnswer();
         JLabel currentQ = new JLabel("start");
-        //Timer timer = new Timer(10000, null);/////////////////////////////////////////////////////////////////////////
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -144,7 +143,6 @@ public class bigONotationQuiz extends JFrame{
         myPanel.add(button4);
         myPanel.add(button5);
 
-        //JLabel currentQ = new JLabel("start");/////////////////////////////////////////////////////////////////////////////
         myFrame.add(currentQ);
 
         myFrame.add(myPanel, BorderLayout.AFTER_LAST_LINE);//BorderLayout.NORTH //SOUTH
@@ -163,7 +161,7 @@ public class bigONotationQuiz extends JFrame{
                 try {
                     //Thread.sleep(100);//Sleep to avoid busy waiting?
                     TimeUnit.SECONDS.sleep(1);
-                    System.out.println("main bit ran");/////////////////////////////////////////////////////////////
+                    //System.out.println("main bit ran");
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
