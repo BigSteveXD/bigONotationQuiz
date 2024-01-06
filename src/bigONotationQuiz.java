@@ -8,7 +8,7 @@ import javax.swing.*;
 
 public class bigONotationQuiz extends JFrame{
     public static void main(String[] args) {
-        JFrame myFrame = new JFrame("Big O Quiz");
+        JFrame myFrame = new JFrame("Big O Notation Quiz");
         myFrame.setSize(600, 500);
         myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -23,11 +23,18 @@ public class bigONotationQuiz extends JFrame{
         JButton button4 = new JButton("O(n log n)");
         JButton button5 = new JButton("N/A");
 
+        JButton button6 = new JButton("Restart");//////////////////////////////////////////////////////////////////
+
         buttonAnswer ba = new buttonAnswer();
-        JLabel currentQ = new JLabel("start");
+        JLabel currentQ = new JLabel("Start");
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                button1.setEnabled(false);//////////////////////////////////////////////////////////////////////////////
+                button2.setEnabled(false);
+                button3.setEnabled(false);
+                button4.setEnabled(false);
+                button5.setEnabled(false);
                 System.out.println("button1");
                 if(ba.getB1()==true){
                     currentQ.setText("Correct!");
@@ -41,6 +48,11 @@ public class bigONotationQuiz extends JFrame{
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         ba.setNextQuestion(true);
+                        button1.setEnabled(true);///////////////////////////////////////////////////////////////////////
+                        button2.setEnabled(true);
+                        button3.setEnabled(true);
+                        button4.setEnabled(true);
+                        button5.setEnabled(true);
                     }
                 });
                 timer.setRepeats(false);//run one time
@@ -50,6 +62,11 @@ public class bigONotationQuiz extends JFrame{
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                button1.setEnabled(false);
+                button2.setEnabled(false);
+                button3.setEnabled(false);
+                button4.setEnabled(false);
+                button5.setEnabled(false);
                 System.out.println("button2");
                 if(ba.getB2()==true){
                     currentQ.setText("Correct!");
@@ -63,6 +80,11 @@ public class bigONotationQuiz extends JFrame{
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         ba.setNextQuestion(true);
+                        button1.setEnabled(true);
+                        button2.setEnabled(true);
+                        button3.setEnabled(true);
+                        button4.setEnabled(true);
+                        button5.setEnabled(true);
                     }
                 });
                 timer.setRepeats(false);//run one time
@@ -72,6 +94,11 @@ public class bigONotationQuiz extends JFrame{
         button3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                button1.setEnabled(false);
+                button2.setEnabled(false);
+                button3.setEnabled(false);
+                button4.setEnabled(false);
+                button5.setEnabled(false);
                 System.out.println("button3");
                 if(ba.getB3()==true){
                     currentQ.setText("Correct!");
@@ -85,6 +112,11 @@ public class bigONotationQuiz extends JFrame{
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         ba.setNextQuestion(true);
+                        button1.setEnabled(true);
+                        button2.setEnabled(true);
+                        button3.setEnabled(true);
+                        button4.setEnabled(true);
+                        button5.setEnabled(true);
                     }
                 });
                 timer.setRepeats(false);//run one time
@@ -94,6 +126,11 @@ public class bigONotationQuiz extends JFrame{
         button4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                button1.setEnabled(false);
+                button2.setEnabled(false);
+                button3.setEnabled(false);
+                button4.setEnabled(false);
+                button5.setEnabled(false);
                 System.out.println("button4");
                 if(ba.getB4()==true){
                     currentQ.setText("Correct!");
@@ -107,6 +144,11 @@ public class bigONotationQuiz extends JFrame{
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         ba.setNextQuestion(true);
+                        button1.setEnabled(true);
+                        button2.setEnabled(true);
+                        button3.setEnabled(true);
+                        button4.setEnabled(true);
+                        button5.setEnabled(true);
                     }
                 });
                 timer.setRepeats(false);//run one time
@@ -116,6 +158,11 @@ public class bigONotationQuiz extends JFrame{
         button5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                button1.setEnabled(false);
+                button2.setEnabled(false);
+                button3.setEnabled(false);
+                button4.setEnabled(false);
+                button5.setEnabled(false);
                 System.out.println("button5");
                 if(ba.getB5()==true){
                     currentQ.setText("Correct!");
@@ -129,10 +176,23 @@ public class bigONotationQuiz extends JFrame{
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         ba.setNextQuestion(true);
+                        button1.setEnabled(true);
+                        button2.setEnabled(true);
+                        button3.setEnabled(true);
+                        button4.setEnabled(true);
+                        button5.setEnabled(true);
                     }
                 });
                 timer.setRepeats(false);//run one time
                 timer.start();
+            }
+        });
+        button6.addActionListener(new ActionListener() {////////////////////////////////////////////////////////////////
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("button6");
+                qp.restart();//remove all questions
+                //qp.createQuestionPool();
             }
         });
 
@@ -142,6 +202,8 @@ public class bigONotationQuiz extends JFrame{
         myPanel.add(button3);
         myPanel.add(button4);
         myPanel.add(button5);
+
+        myPanel.add(button6);///////////////////////////////////////////////////////////////////////////////////////////
 
         myFrame.add(currentQ);
 
@@ -187,6 +249,11 @@ class questionPool{
 
     public String getQuestion(){
         return setQuestion;
+    }
+
+    public void restart(){//////////////////////////////////////////////////////////////////////////////////////////////
+        questionPool.clear();
+        createQuestionPool();
     }
 
     public String getRandomQuestion(buttonAnswer baTemp){
