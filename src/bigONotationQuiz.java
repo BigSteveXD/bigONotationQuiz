@@ -3,6 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 import javax.swing.*;
 
 public class bigONotationQuiz extends JFrame{
@@ -23,18 +24,41 @@ public class bigONotationQuiz extends JFrame{
         JButton button5 = new JButton("N/A");
 
         buttonAnswer ba = new buttonAnswer();
-
+        JLabel currentQ = new JLabel("start");/////////////////////////////////////////////////////////////////////////////
+        //Timer timer = new Timer(10000, null);
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("button1");
                 if(ba.getB1()==true){
+                    //qp.removeQuestion(qp.getQuestion()); //old location
+                    //change text to correct then delay //////////////////////////////////////////////////////////////////////////
+                    currentQ.setText("Correct!");
                     System.out.println("correct");
+
                     qp.removeQuestion(qp.getQuestion());
                 }else{
+                    currentQ.setText("False!");
                     System.out.println("false");
                 }
-                ba.setNextQuestion(true);
+                /*
+                try{
+                    TimeUnit.SECONDS.sleep(2);//5L?
+                    System.out.println("button bit ran");
+                }catch(InterruptedException ex){
+                    Thread.currentThread().interrupt();
+                }
+                */
+                Timer timer = new Timer(2000, new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        //currentQ.setText("O(1)");//reset
+                        ba.setNextQuestion(true);
+                    }
+                });
+                timer.setRepeats(false);//run one time
+                timer.start();
+                //ba.setNextQuestion(true);
             }
         });
         button2.addActionListener(new ActionListener() {
@@ -44,10 +68,19 @@ public class bigONotationQuiz extends JFrame{
                 if(ba.getB2()==true){
                     System.out.println("correct");
                     qp.removeQuestion(qp.getQuestion());
+                    currentQ.setText("Correct!");
                 }else{
+                    currentQ.setText("False!");
                     System.out.println("false");
                 }
-                ba.setNextQuestion(true);
+                Timer timer = new Timer(2000, new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        ba.setNextQuestion(true);
+                    }
+                });
+                timer.setRepeats(false);//run one time
+                timer.start();
             }
         });
         button3.addActionListener(new ActionListener() {
@@ -57,10 +90,19 @@ public class bigONotationQuiz extends JFrame{
                 if(ba.getB3()==true){
                     System.out.println("correct");
                     qp.removeQuestion(qp.getQuestion());
+                    currentQ.setText("Correct!");
                 }else{
+                    currentQ.setText("False!");
                     System.out.println("false");
                 }
-                ba.setNextQuestion(true);
+                Timer timer = new Timer(2000, new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        ba.setNextQuestion(true);
+                    }
+                });
+                timer.setRepeats(false);//run one time
+                timer.start();
             }
         });
         button4.addActionListener(new ActionListener() {
@@ -70,10 +112,19 @@ public class bigONotationQuiz extends JFrame{
                 if(ba.getB4()==true){
                     System.out.println("correct");
                     qp.removeQuestion(qp.getQuestion());
+                    currentQ.setText("Correct!");
                 }else{
+                    currentQ.setText("False!");
                     System.out.println("false");
                 }
-                ba.setNextQuestion(true);
+                Timer timer = new Timer(2000, new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        ba.setNextQuestion(true);
+                    }
+                });
+                timer.setRepeats(false);//run one time
+                timer.start();
             }
         });
         button5.addActionListener(new ActionListener() {
@@ -83,10 +134,19 @@ public class bigONotationQuiz extends JFrame{
                 if(ba.getB5()==true){
                     System.out.println("correct");
                     qp.removeQuestion(qp.getQuestion());
+                    currentQ.setText("Correct!");
                 }else{
+                    currentQ.setText("False!");
                     System.out.println("false");
                 }
-                ba.setNextQuestion(true);
+                Timer timer = new Timer(2000, new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        ba.setNextQuestion(true);
+                    }
+                });
+                timer.setRepeats(false);//run one time
+                timer.start();
             }
         });
 
@@ -97,7 +157,7 @@ public class bigONotationQuiz extends JFrame{
         myPanel.add(button4);
         myPanel.add(button5);
 
-        JLabel currentQ = new JLabel("start");
+        //JLabel currentQ = new JLabel("start");/////////////////////////////////////////////////////////////////////////////
         myFrame.add(currentQ);
 
         myFrame.add(myPanel, BorderLayout.AFTER_LAST_LINE);//BorderLayout.NORTH //SOUTH
@@ -114,7 +174,9 @@ public class bigONotationQuiz extends JFrame{
             ba.setNextQuestion(false);
             while(ba.getNextQuestion()==false){
                 try {
-                    Thread.sleep(100);//Sleep to avoid busy waiting?
+                    //Thread.sleep(100);//Sleep to avoid busy waiting?
+                    TimeUnit.SECONDS.sleep(1);
+                    System.out.println("main bit ran");/////////////////////////////////////////////////////////////
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
