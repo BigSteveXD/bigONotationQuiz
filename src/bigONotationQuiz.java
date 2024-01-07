@@ -216,7 +216,6 @@ public class bigONotationQuiz extends JFrame{
             currentQ.setText(qp.getRandomQuestion(ba));
             myFrame.setVisible(true);
 
-            //pause
             ba.setNextQuestion(false);
             while(ba.getNextQuestion()==false){
                 try {
