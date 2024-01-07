@@ -23,14 +23,14 @@ public class bigONotationQuiz extends JFrame{
         JButton button4 = new JButton("O(n log n)");
         JButton button5 = new JButton("N/A");
 
-        JButton button6 = new JButton("Restart");//////////////////////////////////////////////////////////////////
+        JButton button6 = new JButton("Restart");
 
         buttonAnswer ba = new buttonAnswer();
         JLabel currentQ = new JLabel("Start");
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                button1.setEnabled(false);//////////////////////////////////////////////////////////////////////////////
+                button1.setEnabled(false);
                 button2.setEnabled(false);
                 button3.setEnabled(false);
                 button4.setEnabled(false);
@@ -48,7 +48,7 @@ public class bigONotationQuiz extends JFrame{
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         ba.setNextQuestion(true);
-                        button1.setEnabled(true);///////////////////////////////////////////////////////////////////////
+                        button1.setEnabled(true);
                         button2.setEnabled(true);
                         button3.setEnabled(true);
                         button4.setEnabled(true);
@@ -187,12 +187,11 @@ public class bigONotationQuiz extends JFrame{
                 timer.start();
             }
         });
-        button6.addActionListener(new ActionListener() {////////////////////////////////////////////////////////////////
+        button6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("button6");
                 qp.restart();//remove all questions
-                //qp.createQuestionPool();
             }
         });
 
@@ -203,7 +202,7 @@ public class bigONotationQuiz extends JFrame{
         myPanel.add(button4);
         myPanel.add(button5);
 
-        myPanel.add(button6);///////////////////////////////////////////////////////////////////////////////////////////
+        myPanel.add(button6);
 
         myFrame.add(currentQ);
 
@@ -251,7 +250,7 @@ class questionPool{
         return setQuestion;
     }
 
-    public void restart(){//////////////////////////////////////////////////////////////////////////////////////////////
+    public void restart(){
         questionPool.clear();
         createQuestionPool();
     }
@@ -268,7 +267,6 @@ class questionPool{
         }
 
         switch (setQuestion){
-            //ARRAY
             case "Time Complexity: Worst: Access: Array: ?":
                 //O(1) //button1
                 baTemp.setB1(true);
@@ -1037,7 +1035,6 @@ class questionPool{
         //O(n) //button3
         questionPool.add("Space Complexity: Worst: KD Tree: ?");
         //O(n) //button3
-        //
     }
 }
 
